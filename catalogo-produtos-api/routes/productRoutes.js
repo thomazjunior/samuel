@@ -101,7 +101,9 @@ router.put("/:id", authenticateToken, async (req, res) => {
 
 // DELETE product
 router.delete("/:id", authenticateToken, async (req, res) => {
+  console.log("teste")
   try {
+    console.log("ID", req.params.id)
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ error: "Product not found" });
 
